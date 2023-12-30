@@ -1,0 +1,4 @@
+Quando falamos sobre Virtual Private Network(VPN), Subnets e Security Groups podemos resumir a relação entre os três pontos como fatores de organização e segurança dentro de um 
+dos serviços da AWS conhecido como VPC, exemplificando, os VPN's são usados para estabelecer uma conexão segura entre uma maquina local e uma instância em nuvem, as subnets são usadas
+para organizar o serviço, sendo possivel dividir determinadas faixas do IP e separa-la para determinada função, dessa forma, é possivel fragmentar e tornar mais seguro, e por fim 
+os security groups é mais um fator para gerar segurança ao serviço em questão sendo possivel configurar regras de tráfegos e seperar funções e permissões específicas.
