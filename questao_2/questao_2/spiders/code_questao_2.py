@@ -6,17 +6,12 @@ class CodeQuestao2Spider(scrapy.Spider):
     start_urls = ["https://pedidoeletronico.servimed.com.br/login"]
 
     def start_requests(self):
-        # Use uma lista para armazenar os cookies
         self.cookies = []
 
-        # Inicie a sessão enviando uma solicitação GET
         yield scrapy.Request(url=self.start_urls[0], callback=self.parse)
 
     def parse(self, response):
-        # Extraia os cookies da resposta
         self.cookies = response.headers.getlist('Set-Cookie')
-
-        # Faça a solicitação POST com os cookies
         yield scrapy.FormRequest(
             url='https://pedidoeletronico.servimed.com.br/login',
             headers={'Cookie': ''.join(self.cookies)},
@@ -31,8 +26,6 @@ class CodeQuestao2Spider(scrapy.Spider):
         if response.status == 200:
             self.log("Logado")
             self.log(response)
-
-            # Continue passando os cookies entre as solicitações
             yield scrapy.Request(
                 url='https://pedidoeletronico.servimed.com.br/pedidos',
                 headers={'Cookie': ''.join(self.cookies)},
